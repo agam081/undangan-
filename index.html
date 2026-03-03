@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation of Bima & Lestari</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            /* Javanese Brown */
+            --accent-color: #D2691E;
+            /* Terracotta */
+            --bg-color: #FFF8E7;
+            /* Soft Cream */
+            --text-font: 'Montserrat', sans-serif;
+            --script-font: 'Great Vibes', cursive;
+        }
+
+        body {
+            font-family: var(--text-font);
+            background-color: var(--bg-color);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section / Cover */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: var(--script-font);
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: var(--script-font);
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Batik Pattern Ornaments */
+        .batik-pattern {
+            background-image: radial-gradient(#8B4513 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        /* Couple Images */
+        .couple-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--accent-color);
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Countdown Timer */
+        .countdown-box {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 5px;
+            min-width: 80px;
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        /* Digital Envelope */
+        .bank-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--accent-color);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Music Button */
+        .music-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 9999;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .music-stop {
+            animation: none;
+        }
+
+        /* Lock Screen */
+        #lock-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--primary-color);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <audio id="wedding-music" loop>
+        <source src="Payung Teduh - Akad (Official Music Video).mp3" type="audio/mp3">
+    </audio>
+
+    <div class="music-btn" onclick="toggleMusic()">
+        <i class="fas fa-compact-disc"></i>
+    </div>
+
+    <div id="lock-screen">
+        <div class="container" data-aos="zoom-in">
+            <h3>The Wedding of</h3>
+            <h1 style="font-family: 'Great Vibes', cursive; font-size: 4rem;">Bima & Lestari</h1>
+            <p>To our Dear Guests, Friends, and Family</p>
+            <div class="mt-4">
+                <button class="btn btn-light btn-lg" onclick="openInvitation()">
+                    <i class="fas fa-envelope-open"></i> Open Invitation
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <header class="hero">
+        <div class="container" data-aos="fade-up">
+            <h3>Walimatul 'Ursy</h3>
+            <h1>Bima & Lestari</h1>
+            <p class="lead">June 1st, 2026 | Cirebon</p>
+        </div>
+    </header>
+
+    <section class="text-center">
+        <div class="batik-pattern"></div>
+        <div class="container" data-aos="fade-up">
+            <div class="alert alert-warning d-inline-block border-0 shadow-sm" style="background-color: #FFF3CD;">
+                <p class="mb-0 fst-italic">
+                    "Traveling to Cirebon to buy shrimp paste,<br>
+                    Stopping by for a meal of Nasi Jamblang.<br>
+                    With joyful hearts we share this news,<br>
+                    Bima and Lestari are ready to be wed."
+                </p>
+            </div>
+
+            <h2 class="mt-5 section-title">Assalamu’alaikum Wr. Wb.</h2>
+            <p>By the grace and mercy of Allah SWT, we intend to celebrate the marriage of our children:</p>
+
+            <div class="mt-4">
+                <i class="fas fa-book-open fa-2x text-muted mb-3"></i>
+                <p class="fst-italic px-md-5">
+                    "And among His Signs is this, that He created for you mates from among yourselves, that ye may dwell
+                    in tranquillity with them, and He has put love and mercy between your (hearts)."
+                    <br><strong>(QS. Ar-Rum: 21)</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white">
+        <div class="container text-center">
+            <h2 class="section-title" data-aos="fade-down">The Couple</h2>
+
+            <div class="row justify-content-center align-items-center mt-5">
+                <div class="col-md-5" data-aos="fade-right">
+                    <img src="images/pria 1.jfif" alt="Bima" class="couple-img">
+                    <h3>Bima Agustina Sangsakerta</h3>
+                    <p class="text-muted">4th Son of Mr. Mulyono & Mrs. Siti</p>
+                    <a href="#" class="btn btn-outline-dark btn-sm"><i class="fab fa-instagram"></i> @bima_agustina</a>
+                </div>
+
+                <div class="col-md-2 my-4" data-aos="zoom-in">
+                    <h1 style="font-family: var(--script-font); color: var(--accent-color);">&</h1>
+                </div>
+
+                <div class="col-md-5" data-aos="fade-left">
+                    <img src="images/wanita 2.jfif" alt="Lestari" class="couple-img">
+                    <h3>Lestari Handayani</h3>
+                    <p class="text-muted">1st Daughter of Mr. Yanto & Mrs. Astuti</p>
+                    <a href="#" class="btn btn-outline-dark btn-sm"><i class="fab fa-instagram"></i> @lestari_h</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="text-center">
+        <div class="batik-pattern"></div>
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title">Event Details</h2>
+            <p>By God's will, the event will be held on:</p>
+
+            <div class="card shadow-lg border-0 mt-4 mx-auto" style="max-width: 600px;">
+                <div class="card-body">
+                    <h4 class="fw-bold text-uppercase" style="color: var(--primary-color);">Monday, June 1st, 2026</h4>
+                    <hr>
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-3">
+                            <i class="fas fa-file-signature fa-2x mb-2" style="color: var(--accent-color);"></i>
+                            <h5>Wedding Covenant (Akad)</h5>
+                            <p>07.00 AM - Finish</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <i class="fas fa-glass-cheers fa-2x mb-2" style="color: var(--accent-color);"></i>
+                            <h5>Reception</h5>
+                            <p>09.00 AM - Finish</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="mt-3">
+                        <p class="fw-bold"><i class="fas fa-map-marker-alt"></i> Hotel Apita Cirebon</p>
+                        <a href="https://maps.google.com" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-location-arrow"></i> View on Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-dark text-white text-center">
+        <div class="container" data-aos="zoom-in">
+            <h3 class="mb-4">Countdown to Our Big Day</h3>
+            <div id="countdown" class="d-flex justify-content-center flex-wrap">
+                <div class="countdown-box">
+                    <span id="days" class="countdown-number">00</span><br>Days
+                </div>
+                <div class="countdown-box">
+                    <span id="hours" class="countdown-number">00</span><br>Hours
+                </div>
+                <div class="countdown-box">
+                    <span id="minutes" class="countdown-number">00</span><br>Mins
+                </div>
+                <div class="countdown-box">
+                    <span id="seconds" class="countdown-number">00</span><br>Secs
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="text-center">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title">Wedding Gift</h2>
+            <p>Your presence is the greatest gift of all. However, if you wish to honor us with a gift, you may do so
+                via:</p>
+
+            <div class="bank-card mt-4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/BANK_BRI_logo.svg/2560px-BANK_BRI_logo.svg.png"
+                    alt="Bank Logo" style="height: 50px; margin-bottom: 20px;">
+                <h5>ABC BANK</h5>
+                <h3 id="rek-number" class="fw-bold my-3">1114448887</h3>
+                <p>In the name of: Lestari Handayani</p>
+                <button onclick="copyToClipboard()" class="btn btn-outline-primary btn-sm mt-2">
+                    <i class="fas fa-copy"></i> Copy Account Number
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white" id="rsvp">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title text-center">RSVP</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <form onsubmit="kirimPesan(event)" class="card p-4 shadow-sm border-0">
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Number of Guests</label>
+                            <select class="form-select">
+                                <option value="1">1 Person</option>
+                                <option value="2">2 Persons</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Attendance Confirmation</label>
+                            <select class="form-select" id="status-kehadiran">
+                                <option value="Hadir">Will Attend</option>
+                                <option value="Tidak Hadir">Sorry, Can't Attend</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Wishes & Prayers</label>
+                            <textarea class="form-control" rows="3"
+                                placeholder="Write your wishes for the couple..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Confirmation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="text-center">
+        <div class="container" data-aos="fade-up">
+            <h3 class="mb-4">Wishes & Prayers</h3>
+            <div style="max-height: 300px; overflow-y: auto;" class="text-start mx-auto col-md-8">
+                <div class="card mb-2 p-3 border-0 shadow-sm bg-light">
+                    <strong>Budi Santoso</strong> <small class="text-muted">- Friend</small>
+                    <p class="mb-0">Congrats Bima! Wishing you a smooth journey until the big day.</p>
+                </div>
+                <div class="card mb-2 p-3 border-0 shadow-sm bg-light">
+                    <strong>Siti Aminah</strong> <small class="text-muted">- Cousin</small>
+                    <p class="mb-0">Barakallahu lakuma, may Lestari be a wonderful wife.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <p class="mb-0">It is an honor for us if you could attend our wedding.</p>
+        <p class="small text-muted mt-2">© 2026 Bima & Lestari Wedding</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // 1. Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: false
+        });
+        function openInvitation() {
+            document.getElementById("lock-screen").style.display = "none";
+            document.querySelector(".hero").style.display = "block";
+        }
+
+        // 2. Logic Open Invitation & Music
+        const music = document.getElementById("wedding-music");
+        const musicBtn = document.querySelector(".music-btn");
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play().catch(error => {
+                    console.log("Autoplay blocked:", error);
+                });
+                musicBtn.classList.remove("music-stop");
+            } else {
+                music.pause();
+                musicBtn.classList.add("music-stop");
+            }
+        }
+        // 3. Logic Countdown Timer
+        const weddingDate = new Date("June 1, 2026 07:00:00").getTime();
+
+        const x = setInterval(function () {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "<h3>Just Married!</h3>";
+            }
+        }, 1000);
+
+        // 4. Logic Copy Account Number
+        function copyToClipboard() {
+            const rekText = document.getElementById("rek-number").innerText;
+            navigator.clipboard.writeText(rekText);
+            alert("Account number copied successfully!");
+        }
+
+        // 5. Logic Send RSVP (Simulation)
+        function kirimPesan(e) {
+            e.preventDefault();
+            alert("Thank you! Your attendance confirmation has been received.");
+            e.target.reset();
+        }
+    </script>
+</body>
+
+</html>
